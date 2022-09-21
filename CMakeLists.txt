@@ -3,6 +3,7 @@ project(note)
 
 add_subdirectory(c)
 add_subdirectory(cpp)
+add_subdirectory(libuv)
 
 if (UNIX)
     add_subdirectory(unix)
