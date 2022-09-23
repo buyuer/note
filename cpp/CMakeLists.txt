@@ -9,7 +9,10 @@ add_executable(cpp_coroutine
         coroutine.cpp)
 add_executable(cpp_ranges
         ranges.cpp)
-add_executable(cpp_thread thread.cpp)
+add_executable(cpp_thread
+        thread.cpp)
+add_executable(cpp_iostream
+        iostream.cpp)
 
 set_target_properties(
         cpp_semaphore
@@ -18,6 +21,7 @@ set_target_properties(
         cpp_coroutine
         cpp_ranges
         cpp_thread
+        cpp_iostream
         PROPERTIES
         C_STANDARD 11
         C_EXTENSIONS OFF
