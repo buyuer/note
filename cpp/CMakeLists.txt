@@ -9,6 +9,7 @@ add_executable(cpp_coroutine
         coroutine.cpp)
 add_executable(cpp_ranges
         ranges.cpp)
+add_executable(cpp_thread thread.cpp)
 
 set_target_properties(
         cpp_semaphore
@@ -16,6 +17,7 @@ set_target_properties(
         cpp_future_promise
         cpp_coroutine
         cpp_ranges
+        cpp_thread
         PROPERTIES
         C_STANDARD 11
         C_EXTENSIONS OFF
