@@ -29,4 +29,5 @@ int main(int argc, char *argv[])
     pthread_mutex_unlock(&mutex);
 
     sleep(1);
+    pthread_mutex_destroy(&mutex);
 }
