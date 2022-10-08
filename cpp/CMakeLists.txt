@@ -13,6 +13,8 @@ add_executable(cpp_thread
         thread.cpp)
 add_executable(cpp_iostream
         iostream.cpp)
+add_executable(cpp_smart_pointer
+        smart_pointer.cpp)
 
 set_target_properties(
         cpp_semaphore
@@ -22,6 +24,7 @@ set_target_properties(
         cpp_ranges
         cpp_thread
         cpp_iostream
+        cpp_smart_pointer
         PROPERTIES
         C_STANDARD 11
         C_EXTENSIONS OFF
