@@ -35,3 +35,5 @@ set_target_properties(
         CXX_EXTENSIONS OFF
         CXX_STANDARD_REQUIRED OFF
 )
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
