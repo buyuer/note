@@ -1,9 +1,10 @@
 
-add_executable(unix_select select.c)
-add_executable(unix_poll poll.c)
-add_executable(unix_pthread pthread.c)
-add_executable(unix_pthread_mutex pthread_mutex.c)
-add_executable(unix_pthread_cond pthread_cond.c)
+add_executable(unix_select          select.c)
+add_executable(unix_poll            poll.c)
+add_executable(unix_pthread         pthread.c)
+add_executable(unix_pthread_mutex   pthread_mutex.c)
+add_executable(unix_pthread_cond    pthread_cond.c)
+add_executable(unix_dlfcn dlfcn.c)
 
 find_package(Threads)
 
@@ -17,6 +18,7 @@ set_target_properties(
         unix_pthread
         unix_pthread_mutex
         unix_pthread_cond
+        unix_dlfcn
         PROPERTIES
         C_STANDARD 11
         C_EXTENSIONS OFF

@@ -7,7 +7,7 @@ set_target_properties(
         C_STANDARD 11
         C_EXTENSIONS OFF
         C_STANDARD_REQUIRED ON
-        CXX_STANDARD 20ß
+        CXX_STANDARD 20
         CXX_EXTENSIONS OFF
         CXX_STANDARD_REQUIRED ON
 )
