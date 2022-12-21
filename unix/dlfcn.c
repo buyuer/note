@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
     if (!handler)
     {
         printf("open lib failed: %s\n", dlerror());
+        return -1;
     }
 
     printf_t dl_printf = dlsym(handler, "printf");
