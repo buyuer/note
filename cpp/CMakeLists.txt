@@ -11,10 +11,20 @@ add_executable(cpp_ranges
         ranges.cpp)
 add_executable(cpp_thread
         thread.cpp)
+add_executable(cpp_mutex
+        mutex.cpp)
+add_executable(cpp_condition_variable
+        condition_variable.cpp)
 add_executable(cpp_iostream
         iostream.cpp)
 add_executable(cpp_smart_pointer
         smart_pointer.cpp)
+
+find_package(Threads)
+
+target_link_libraries(cpp_thread Threads::Threads)
+target_link_libraries(cpp_mutex Threads::Threads)
+target_link_libraries(cpp_condition_variable Threads::Threads)
 
 set_target_properties(
         cpp_semaphore
