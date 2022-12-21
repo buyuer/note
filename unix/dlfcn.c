@@ -18,4 +18,6 @@ int main(int argc, char *argv[])
     dl_printf("this is dl_printf\n");
 
     dlclose(handler);
+
+    return 0;
 }
