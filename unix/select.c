@@ -8,19 +8,23 @@
 int main(int argc, char *argv[])
 {
     fd_set         read_fds = {};
-    struct timeval tv;
     int            retval = 0;
 
     FD_ZERO(&read_fds);
     FD_SET(0, &read_fds);
 
-    tv.tv_sec  = 5;
-    tv.tv_usec = 0;
+    printf("select wailing\n");
 
-    printf("select wailing");
+    /* Let the last log can be output */
+    fflush(stdout);
 
     while (true)
     {
+        struct timeval tv = {
+            .tv_sec  = 5,
+            .tv_usec = 0
+        };
+
         retval = select(1, &read_fds, NULL, NULL, &tv);
 
         if (retval == -1)
@@ -52,6 +56,11 @@ int main(int argc, char *argv[])
                     }
                 }
             }
+        }
+        else if (retval == 0)
+        {
+            printf("select timeout ......\n");
+            continue;
         }
         else
         {
