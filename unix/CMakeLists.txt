@@ -8,6 +8,8 @@ add_executable(unix_dlfcn dlfcn.c)
 
 find_package(Threads)
 
+target_link_libraries(unix_dlfcn -ldl)
+
 target_link_libraries(unix_pthread Threads::Threads)
 target_link_libraries(unix_pthread_mutex Threads::Threads)
 target_link_libraries(unix_pthread_cond Threads::Threads)
