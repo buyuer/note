@@ -17,7 +17,13 @@ int main(int argc, char *argv[])
             }
         },
         argc, argv);
+
+    auto start = std::chrono::high_resolution_clock::now();
     t1.join();
+    auto end = std::chrono::high_resolution_clock::now();
+
+    std::chrono::duration<double, std::milli> elapsed = end-start;
+    std::cout << "Sleep " << elapsed.count() << " ms" << std::endl;
 
     return 0;
 }
