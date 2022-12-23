@@ -25,4 +25,6 @@ int main(int argc, char *argv[])
         sem.release();
         std::this_thread::sleep_for(1s);
     };
+
+    return 0;
 }

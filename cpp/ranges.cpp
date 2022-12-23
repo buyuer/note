@@ -14,4 +14,6 @@ int main(int argc, char *argv[], char *env[])
     {
         std::cout << i << std::endl;
     }
+
+    return 0;
 }
