@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.17)
+cmake_minimum_required(VERSION 3.21)
 project(note)
 
 add_subdirectory(c)
@@ -22,18 +22,5 @@ endif ()
 if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
     add_subdirectory(darwin)
 endif ()
-
-add_executable(note main.cpp)
-
-set_target_properties(
-        note
-        PROPERTIES
-        C_STANDARD 11
-        C_EXTENSIONS OFF
-        C_STANDARD_REQUIRED ON
-        CXX_STANDARD 23
-        CXX_EXTENSIONS OFF
-        CXX_STANDARD_REQUIRED OFF
-)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
