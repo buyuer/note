@@ -16,4 +16,6 @@ int main(int argc, char *argv[])
     {
         std::cout << num << std::endl;
     }
+
+    return 0;
 }
