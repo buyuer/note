@@ -1,24 +1,19 @@
 #include <iostream>
 #include <memory>
 
-static void do_1(std::unique_ptr<int[]> up)
-{
-    if (up)
-    {
+static void do_1(std::unique_ptr<int[]> up) {
+    if (up) {
         std::cout << up[0] << std::endl;
     }
 }
 
-static void do_2(std::shared_ptr<int[]> sp)
-{
-    if (sp)
-    {
+static void do_2(std::shared_ptr<int[]> sp) {
+    if (sp) {
         std::cout << "temp   use_count() " << sp.use_count() << std::endl;
     }
 }
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     std::unique_ptr<int[]> up(new int[10]{2});
 
     do_1(std::move(up));

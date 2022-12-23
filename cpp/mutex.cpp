@@ -3,17 +3,16 @@
 #include <mutex>
 #include <thread>
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     std::mutex m;
 
     std::thread t1(
-        [](std::mutex *m) -> void {
-            std::unique_lock<std::mutex> ul(*m);
+            [](std::mutex *m) -> void {
+                std::unique_lock<std::mutex> ul(*m);
 
-            std::cout << "t1 done" << std::endl;
-        },
-        &m);
+                std::cout << "t1 done" << std::endl;
+            },
+            &m);
     t1.detach();
 
     m.lock();

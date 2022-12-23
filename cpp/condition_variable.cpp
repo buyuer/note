@@ -4,19 +4,18 @@
 #include <mutex>
 #include <thread>
 
-int main(int argc, char *argv[])
-{
-    std::mutex              m;
+int main(int argc, char *argv[]) {
+    std::mutex m;
     std::condition_variable cv;
 
     std::thread t1(
-        [](std::mutex *m, std::condition_variable *cv) -> void {
-            std::unique_lock<std::mutex> ul(*m);
-            cv->wait(ul);
+            [](std::mutex *m, std::condition_variable *cv) -> void {
+                std::unique_lock<std::mutex> ul(*m);
+                cv->wait(ul);
 
-            std::cout << "t1 done" << std::endl;
-        },
-        &m, &cv);
+                std::cout << "t1 done" << std::endl;
+            },
+            &m, &cv);
     t1.detach();
 
     std::cout << "main thread done" << std::endl;

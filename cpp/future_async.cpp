@@ -3,20 +3,18 @@
 
 using namespace std::literals::chrono_literals;
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     std::future<bool> fut = std::async(
-        [](int x) -> bool {
-            std::this_thread::sleep_for(5s);
+            [](int x) -> bool {
+                std::this_thread::sleep_for(5s);
 
-            for (int i = 1; i < x; i++)
-            {
-                if (x % i == 0)
-                    return false;
-            }
-            return true;
-        },
-        700020007);
+                for (int i = 1; i < x; i++) {
+                    if (x % i == 0)
+                        return false;
+                }
+                return true;
+            },
+            700020007);
 
     std::cout << "please wait";
 
