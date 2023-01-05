@@ -1,11 +1,13 @@
 cmake_minimum_required(VERSION 3.21)
 project(note)
 
+include(cmake/utils.cmake)
+
 add_subdirectory(c)
 add_subdirectory(cpp)
-add_subdirectory(boost)
-add_subdirectory(qt)
-add_subdirectory(libuv)
+# add_subdirectory(boost)
+# add_subdirectory(qt)
+# add_subdirectory(libuv)
 
 if (UNIX)
     add_subdirectory(unix)

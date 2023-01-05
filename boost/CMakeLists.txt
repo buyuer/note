@@ -1,7 +1,17 @@
+note_generate_target(./ boost TARGETS)
 
-find_package(Boost)
+find_package(Threads)
 
-if (Boost_FOUND)
-    add_executable(boost_asio asio.cpp)
-    target_include_directories(boost_asio PRIVATE ${Boost_INCLUDE_DIR})
-endif ()
+foreach(TARGET ${TARGETS})
+    target_link_libraries(${TARGET} Threads::Threads)
+    set_target_properties(
+            ${TARGET}
+            PROPERTIES
+            C_STANDARD 11
+            C_EXTENSIONS OFF
+            C_STANDARD_REQUIRED ON
+            CXX_STANDARD 23
+            CXX_EXTENSIONS OFF
+            CXX_STANDARD_REQUIRED OFF
+    )
+endforeach()

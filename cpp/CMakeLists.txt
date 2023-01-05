@@ -1,20 +1,11 @@
-list(APPEND cpp_targets
-        semaphore
-        future_async
-        future_promise
-        coroutine
-        ranges
-        thread
-        mutex
-        condition_variable
-        iostream
-        smart_pointer
-        )
+note_generate_target(./ cpp TARGETS)
 
-foreach (target ${cpp_targets})
-    add_executable(cpp_${target} ${target}.cpp)
+find_package(Threads)
+
+foreach(TARGET ${TARGETS})
+    target_link_libraries(${TARGET} Threads::Threads)
     set_target_properties(
-            cpp_${target}
+            ${TARGET}
             PROPERTIES
             C_STANDARD 11
             C_EXTENSIONS OFF
@@ -23,10 +14,4 @@ foreach (target ${cpp_targets})
             CXX_EXTENSIONS OFF
             CXX_STANDARD_REQUIRED OFF
     )
-endforeach ()
-
-find_package(Threads)
-
-target_link_libraries(cpp_thread Threads::Threads)
-target_link_libraries(cpp_mutex Threads::Threads)
-target_link_libraries(cpp_condition_variable Threads::Threads)
+endforeach()

@@ -1,14 +1,14 @@
-list(APPEND c_targets
-        restrict
-        )
+note_generate_target(./ c TARGETS)
 
-foreach (target ${c_targets})
-    add_executable(c_${target} ${target}.c)
+find_package(Threads)
+
+foreach(TARGET ${TARGETS})
+    target_link_libraries(${TARGET} Threads::Threads)
     set_target_properties(
-            c_${target}
+            ${TARGET}
             PROPERTIES
             C_STANDARD 11
             C_EXTENSIONS OFF
             C_STANDARD_REQUIRED ON
     )
-endforeach ()
+endforeach()
