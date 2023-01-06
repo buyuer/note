@@ -2,7 +2,7 @@ note_generate_target(./ c TARGETS)
 
 find_package(Threads)
 
-foreach(TARGET ${TARGETS})
+foreach (TARGET ${TARGETS})
     target_link_libraries(${TARGET} Threads::Threads)
     set_target_properties(
             ${TARGET}
@@ -11,4 +11,4 @@ foreach(TARGET ${TARGETS})
             C_EXTENSIONS OFF
             C_STANDARD_REQUIRED ON
     )
-endforeach()
+endforeach ()

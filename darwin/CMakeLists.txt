@@ -3,7 +3,7 @@ note_generate_target(./ darwin DARWIN_TARGETS)
 
 find_package(Threads)
 
-foreach(TARGET ${DARWIN_TARGETS})
+foreach (TARGET ${DARWIN_TARGETS})
     target_link_libraries(${TARGET} Threads::Threads)
     set_target_properties(
             ${TARGET}
@@ -15,4 +15,4 @@ foreach(TARGET ${DARWIN_TARGETS})
             CXX_EXTENSIONS OFF
             CXX_STANDARD_REQUIRED OFF
     )
-endforeach()
+endforeach ()

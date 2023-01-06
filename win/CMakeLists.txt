@@ -2,7 +2,7 @@ note_generate_target(./ win TARGETS)
 
 find_package(Threads)
 
-foreach(TARGET ${TARGETS})
+foreach (TARGET ${TARGETS})
     target_link_libraries(${TARGET} Threads::Threads)
     set_target_properties(
             ${TARGET}
@@ -14,4 +14,4 @@ foreach(TARGET ${TARGETS})
             CXX_EXTENSIONS OFF
             CXX_STANDARD_REQUIRED OFF
     )
-endforeach()
+endforeach ()

@@ -3,10 +3,12 @@
 
 typedef int (*printf_t)(const char *, ...);
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     void *handler = dlopen("/lib/x86_64-linux-gnu/libc.so.6", RTLD_NOW);
 
-    if (!handler) {
+    if (!handler)
+    {
         printf("open lib failed: %s\n", dlerror());
         return -1;
     }

@@ -2,8 +2,9 @@
 #include <stdio.h>
 #include <unistd.h>
 
-static void *thread_entry(void *arg) {
-    pthread_mutex_t *mutex = (pthread_mutex_t *) arg;
+static void *thread_entry(void *arg)
+{
+    pthread_mutex_t *mutex = (pthread_mutex_t *)arg;
 
     pthread_mutex_lock(mutex);
     printf("thread\n");
@@ -12,7 +13,8 @@ static void *thread_entry(void *arg) {
     return 0;
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     pthread_mutex_t mutex;
     pthread_mutex_init(&mutex, NULL);
 

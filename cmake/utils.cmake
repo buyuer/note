@@ -1,11 +1,11 @@
 
 function(note_generate_target _PATH _PREFIX _TARGETS)
     file(GLOB FILE_PATHS "${_PATH}/*.cpp" "${_PATH}/*.cxx" "${_PATH}/*.c")
-    foreach(FILE_PATH ${FILE_PATHS})
+    foreach (FILE_PATH ${FILE_PATHS})
         string(REGEX REPLACE ".+/(.+)\\..*" "\\1" FILE_NAME ${FILE_PATH})
         set(TARGET_NAME ${_PREFIX}_${FILE_NAME})
         add_executable(${TARGET_NAME} ${FILE_PATH})
         list(APPEND TARGETS_NAME ${TARGET_NAME})
-    endforeach()
+    endforeach ()
     set(${_TARGETS} ${TARGETS_NAME} PARENT_SCOPE)
 endfunction()

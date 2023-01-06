@@ -1,6 +1,6 @@
 note_generate_target(./ linux TARGETS)
 
-foreach(TARGET ${TARGETS})
+foreach (TARGET ${TARGETS})
     set_target_properties(
             ${TARGET}
             PROPERTIES
@@ -11,4 +11,4 @@ foreach(TARGET ${TARGETS})
             CXX_EXTENSIONS OFF
             CXX_STANDARD_REQUIRED OFF
     )
-endforeach()
+endforeach ()
