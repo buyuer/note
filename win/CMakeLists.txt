@@ -4,6 +4,7 @@ find_package(Threads)
 
 foreach (TARGET ${TARGETS})
     target_link_libraries(${TARGET} Threads::Threads)
+    target_link_options(${TARGET} PRIVATE "/SUBSYSTEM:WINDOWS")
     set_target_properties(
             ${TARGET}
             PROPERTIES
