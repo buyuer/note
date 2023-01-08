@@ -1,9 +1,14 @@
+find_package(Boost QUIET)
+if (NOT Boost_FOUND)
+    return()
+endif ()
+
 note_generate_target(./ boost TARGETS)
 
 find_package(Threads)
 
 foreach (TARGET ${TARGETS})
-    target_link_libraries(${TARGET} Threads::Threads)
+    target_link_libraries(${TARGET} Threads::Threads Boost::boost)
     set_target_properties(
             ${TARGET}
             PROPERTIES

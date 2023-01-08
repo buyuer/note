@@ -1,3 +1,7 @@
+if (NOT WIN32)
+    return()
+endif ()
+
 note_generate_target(./ win TARGETS)
 
 find_package(Threads)

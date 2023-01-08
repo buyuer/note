@@ -1,3 +1,7 @@
+if (NOT CMAKE_SYSTEM_NAME MATCHES "Linux")
+    return()
+endif ()
+
 note_generate_target(./ linux TARGETS)
 
 foreach (TARGET ${TARGETS})

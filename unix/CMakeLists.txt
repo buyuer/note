@@ -1,3 +1,7 @@
+if (NOT UNIX)
+    return()
+endif ()
+
 note_generate_target(./ unix TARGETS)
 
 find_package(Threads)

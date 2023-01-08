@@ -5,24 +5,13 @@ include(cmake/utils.cmake)
 
 add_subdirectory(c)
 add_subdirectory(cpp)
-# add_subdirectory(boost)
-# add_subdirectory(qt)
-# add_subdirectory(libuv)
+add_subdirectory(boost)
+add_subdirectory(qt)
+add_subdirectory(libuv)
 
-if (UNIX)
-    add_subdirectory(unix)
-endif ()
-
-if (WIN32)
-    add_subdirectory(win)
-endif ()
-
-if (CMAKE_SYSTEM_NAME MATCHES "Linux")
-    add_subdirectory(linux)
-endif ()
-
-if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
-    add_subdirectory(darwin)
-endif ()
+add_subdirectory(unix)
+add_subdirectory(win)
+add_subdirectory(linux)
+add_subdirectory(darwin)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

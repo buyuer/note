@@ -1,3 +1,6 @@
+if (NOT CMAKE_SYSTEM_NAME MATCHES "Darwin")
+    return()
+endif ()
 
 note_generate_target(./ darwin DARWIN_TARGETS)
 

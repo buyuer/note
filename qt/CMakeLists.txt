@@ -1,2 +1,5 @@
+find_package(Qt5 COMPONENTS Core Gui QUIET)
 
-find_package(Qt5 COMPONENTS Core Gui)
+if (NOT Qt5_FOUND)
+    return()
+endif ()
