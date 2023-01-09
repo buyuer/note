@@ -8,6 +8,7 @@ add_subdirectory(cpp)
 add_subdirectory(boost)
 add_subdirectory(qt)
 add_subdirectory(libuv)
+add_subdirectory(opencv)
 
 add_subdirectory(unix)
 add_subdirectory(win)
