@@ -2,6 +2,7 @@
 
 #include <stdarg.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 void print_from_py(const char *str, long num)
 {
@@ -19,9 +20,9 @@ void print_from_py(const char *str, long num)
         return;
     }
 
-    PyObject *pyTuple_args = PyTuple_New(2);
-    PyObject *pyUnicode_arg1  = PyUnicode_FromString(str);
-    PyObject *pyLong_arg2  = PyLong_FromLong(num);
+    PyObject *pyTuple_args   = PyTuple_New(2);
+    PyObject *pyUnicode_arg1 = PyUnicode_FromString(str);
+    PyObject *pyLong_arg2    = PyLong_FromLong(num);
     PyTuple_SetItem(pyTuple_args, 0, pyUnicode_arg1);
     PyTuple_SetItem(pyTuple_args, 1, pyLong_arg2);
 
@@ -32,13 +33,19 @@ void print_from_py(const char *str, long num)
     Py_DECREF(py_ret);
     Py_DECREF(pyUnicode_arg1);
     Py_DECREF(pyLong_arg2);
-    //Py_DECREF(pyTuple_args);
+    // Py_DECREF(pyTuple_args);
     Py_DECREF(pyFunc_print);
     Py_DECREF(pyModule_builtins);
 }
 
 int main(int argc, char *argv[])
 {
+    const char *env_pyhome = "PYTHONHOME=" PYTHONHOME;
+    const char *env_pypath = "PYTHONPATH=" PYTHONHOME "/lib";
+
+    putenv(env_pyhome);
+    putenv(env_pypath);
+
     wchar_t *program = Py_DecodeLocale(argv[0], NULL);
 
     Py_SetProgramName(program);
