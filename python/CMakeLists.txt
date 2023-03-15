@@ -23,3 +23,5 @@ foreach (TARGET ${TARGETS})
     string(REGEX REPLACE "[\\]" "\\\\\\\\" PYTHONHOME ${Python3_ROOT})
     target_compile_definitions(${TARGET} PRIVATE -DPYTHONHOME="${PYTHONHOME}")
 endforeach ()
+
+Python3_add_library(mypy SHARED mypy/mypy.c)
