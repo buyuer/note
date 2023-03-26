@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
         goto err;
     }
 
-    int ret = inotify_add_watch(ifd, "./", IN_MOVED_TO | IN_MOVED_FROM);
+    int ret = inotify_add_watch(ifd, "./", IN_ALL_EVENTS);
     if (ret < 0)
     {
         perror("inotify add failed");
