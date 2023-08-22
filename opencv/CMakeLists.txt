@@ -6,8 +6,7 @@ endif ()
 note_generate_target(./ cv TARGETS)
 
 foreach (TARGET ${TARGETS})
-    target_link_libraries(${TARGET}         PRIVATE ${OpenCV_LIBS})
-    target_include_directories(${TARGET}    PRIVATE ${OpenCV_INCLUDE_DIRS})
+    target_link_libraries(${TARGET} PRIVATE opencv_world)
     set_target_properties(
             ${TARGET}
             PROPERTIES

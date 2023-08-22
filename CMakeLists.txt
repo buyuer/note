@@ -14,6 +14,7 @@ add_subdirectory(qt)
 add_subdirectory(libuv)
 add_subdirectory(opencv)
 add_subdirectory(python)
+add_subdirectory(pybind11)
 
 add_subdirectory(unix)
 add_subdirectory(win)
