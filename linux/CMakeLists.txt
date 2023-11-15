@@ -16,3 +16,5 @@ foreach (TARGET ${TARGETS})
             CXX_STANDARD_REQUIRED OFF
     )
 endforeach ()
+
+add_library(runso SHARED others/runso.c)
