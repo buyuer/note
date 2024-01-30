@@ -2,6 +2,15 @@
 #include <iostream>
 #include <thread>
 
+class TestFunc
+{
+  public:
+    void work(int a)
+    {
+        std::cout << a << std::endl;
+    }
+};
+
 int main(int argc, char *argv[])
 {
     auto id = std::this_thread::get_id();
@@ -17,6 +26,10 @@ int main(int argc, char *argv[])
             }
         },
         argc, argv);
+
+    TestFunc    func;
+    std::thread t2(&TestFunc::work, &func, 1);
+    t2.detach();
 
     auto start = std::chrono::high_resolution_clock::now();
     t1.join();
