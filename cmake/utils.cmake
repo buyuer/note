@@ -1,6 +1,6 @@
 
 function(note_generate_target _PATH _PREFIX _TARGETS)
-    file(GLOB FILE_PATHS "${_PATH}/*.cpp" "${_PATH}/*.cxx" "${_PATH}/*.c")
+    file(GLOB FILE_PATHS "${_PATH}/*.cpp" "${_PATH}/*.cxx" "${_PATH}/*.c" "${_PATH}/*.cu")
     foreach (FILE_PATH ${FILE_PATHS})
         string(REGEX REPLACE ".+/(.+)\\..*" "\\1" FILE_NAME ${FILE_PATH})
         set(TARGET_NAME ${_PREFIX}_${FILE_NAME})

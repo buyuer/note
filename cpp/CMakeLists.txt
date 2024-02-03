@@ -1,4 +1,11 @@
+# Date      2022.02.01
+# Author    dingddding@163.com
+# Bref      The CMakeLists.txt
+
+cmake_minimum_required(VERSION 3.21)
 note_generate_target(./ cpp TARGETS)
+
+project(note-cpp LANGUAGES CXX)
 
 find_package(Threads)
 

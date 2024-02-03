@@ -1,6 +1,13 @@
+# Date      2022.02.01
+# Author    dingddding@163.com
+# Bref      The CMakeLists.txt
+
+cmake_minimum_required(VERSION 3.21)
 if (NOT ANDROID)
     return()
 endif ()
+
+project(note-android LANGUAGES C CXX)
 
 add_library(note SHARED)
 

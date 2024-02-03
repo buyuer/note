@@ -1,6 +1,13 @@
+# Date      2022.02.01
+# Author    dingddding@163.com
+# Bref      The CMakeLists.txt
+
+cmake_minimum_required(VERSION 3.21)
 if (NOT CMAKE_SYSTEM_NAME MATCHES "Linux")
     return()
 endif ()
+
+project(note-linux LANGUAGES C CXX)
 
 note_generate_target(./ linux TARGETS)
 
