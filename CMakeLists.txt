@@ -10,7 +10,7 @@ include(cmake/utils.cmake)
 
 if (CMAKE_BUILD_TYPE STREQUAL Debug)
     if (CMAKE_C_COMPILER_ID STREQUAL GCC OR CMAKE_C_COMPILER_ID STREQUAL Clang)
-        set(CMAKE_C_FLAGS "-fsanitize=address -fsanitize=leak ${CMAKE_CXX_FLAGS}")
+        set(CMAKE_C_FLAGS "-fsanitize=address -fsanitize=leak ${CMAKE_C_FLAGS}")
     endif ()
     if (CMAKE_CXX_COMPILER_ID STREQUAL GCC OR CMAKE_CXX_COMPILER_ID STREQUAL Clang)
         set(CMAKE_CXX_FLAGS "-fsanitize=address -fsanitize=leak ${CMAKE_CXX_FLAGS}")
