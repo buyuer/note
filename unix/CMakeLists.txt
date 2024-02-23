@@ -14,6 +14,10 @@ note_generate_target(./ unix TARGETS)
 find_package(Threads)
 
 foreach (TARGET ${TARGETS})
+    if (${TARGET} STREQUAL "unix_dlfcn")
+        target_link_libraries(${TARGET} -ldl)
+    endif()
+
     target_link_libraries(${TARGET} Threads::Threads)
     set_target_properties(
             ${TARGET}
