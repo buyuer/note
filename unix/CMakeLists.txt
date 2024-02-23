@@ -15,7 +15,7 @@ find_package(Threads)
 
 foreach (TARGET ${TARGETS})
     if (${TARGET} STREQUAL "unix_dlfcn")
-        target_link_libraries(${TARGET} -ldl)
+        target_link_libraries(${TARGET} dl)
     endif()
 
     target_link_libraries(${TARGET} Threads::Threads)
