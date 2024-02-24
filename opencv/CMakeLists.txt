@@ -13,7 +13,8 @@ project(note-opencv LANGUAGES C CXX)
 note_generate_target(./ cv TARGETS)
 
 foreach (TARGET ${TARGETS})
-    target_link_libraries(${TARGET} PRIVATE opencv_world)
+    target_include_directories(${TARGET} PRIVATE ${OpenCV_INCLUDE_DIRS})
+    target_link_libraries(${TARGET} PRIVATE ${OpenCV_LIBS})
     set_target_properties(
             ${TARGET}
             PROPERTIES
