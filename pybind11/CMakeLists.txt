@@ -9,3 +9,5 @@ if (NOT pybind11_FOUND)
 endif ()
 
 project(note-pybind11 LANGUAGES C CXX)
+
+pybind11_add_module(pybind11_test test.cpp)
