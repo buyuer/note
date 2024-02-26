@@ -40,8 +40,8 @@ void print_from_py(const char *str, long num)
 
 int main(int argc, char *argv[])
 {
-    const char *env_pyhome = "PYTHONHOME=" PYTHONHOME;
-    const char *env_pypath = "PYTHONPATH=" PYTHONHOME "/lib";
+    char *env_pyhome = "PYTHONHOME=" PYTHONHOME;
+    char *env_pypath = "PYTHONPATH=" PYTHONHOME "/lib";
 
     putenv(env_pyhome);
     putenv(env_pypath);
