@@ -2,7 +2,7 @@
 # Author    dingddding@163.com
 # Bref      The CMakeLists.txt
 
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.25)
 if (NOT UNIX)
     return()
 endif ()
@@ -14,9 +14,9 @@ note_generate_target(./ unix TARGETS)
 find_package(Threads)
 
 foreach (TARGET ${TARGETS})
-    if (${TARGET} STREQUAL "unix_dlfcn")
-        target_link_libraries(${TARGET} dl)
-    endif()
+    if (LINUX)
+        target_link_libraries(${TARGET} PRIVATE dl)
+    endif ()
 
     target_link_libraries(${TARGET} Threads::Threads)
     set_target_properties(
