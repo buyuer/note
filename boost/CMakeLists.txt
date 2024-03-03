@@ -3,7 +3,9 @@
 # Bref      The CMakeLists.txt
 
 cmake_minimum_required(VERSION 3.21)
-find_package(Boost QUIET COMPONENTS json)
+find_package(Boost QUIET
+        COMPONENTS
+        json program_options)
 if (NOT Boost_FOUND)
     return()
 endif ()
@@ -14,7 +16,7 @@ note_generate_target(./ boost TARGETS)
 find_package(Threads)
 
 foreach (TARGET ${TARGETS})
-    target_link_libraries(${TARGET} Threads::Threads Boost::boost Boost::json)
+    target_link_libraries(${TARGET} Threads::Threads Boost::boost Boost::json Boost::program_options)
     set_target_properties(
             ${TARGET}
             PROPERTIES
