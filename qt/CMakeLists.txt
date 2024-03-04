@@ -3,18 +3,23 @@
 # Bref      The CMakeLists.txt
 
 cmake_minimum_required(VERSION 3.21)
-find_package(Qt6 COMPONENTS Core Gui QUIET)
+find_package(Qt6 QUIET
+        COMPONENTS
+        Core Gui Network Widgets)
 
 if (NOT Qt6_FOUND)
     return()
 endif ()
 
 project(note-qt LANGUAGES CXX)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
 
 note_generate_target(./ qt TARGETS)
 
 foreach (TARGET ${TARGETS})
-    target_link_libraries(${TARGET} PRIVATE Qt6::Core)
+    target_link_libraries(${TARGET} PRIVATE Qt6::Core Qt6::Gui Qt6::Network)
     set_target_properties(
             ${TARGET}
             PROPERTIES
