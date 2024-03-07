@@ -42,7 +42,7 @@ function(get_build_info _BUILD_INFO)
                 OUTPUT_VARIABLE BUILD_DIRTY
                 OUTPUT_STRIP_TRAILING_WHITESPACE)
     endif ()
-    STRING(TIMESTAMP BUILD_TIME "%Y.%m.%d.%H.%M.%S")
+    string(TIMESTAMP BUILD_TIME "%Y.%m.%d.%H.%M.%S")
     set(${_BUILD_INFO} "hash(${BUILD_SHA}).branch(${BUILD_DIRTY}${BUILD_BRANCH}).date(${BUILD_COMMIT_DATE}).buildtime(${BUILD_TIME})" PARENT_SCOPE)
 
     # message(STATUS "Build Time              ${BUILD_TIME}")
