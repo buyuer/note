@@ -18,7 +18,7 @@ foreach (TARGET ${TARGETS})
         target_link_libraries(${TARGET} PRIVATE dl)
     endif ()
 
-    target_link_libraries(${TARGET} Threads::Threads)
+    target_link_libraries(${TARGET} PRIVATE Threads::Threads)
     set_target_properties(
             ${TARGET}
             PROPERTIES
