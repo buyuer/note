@@ -1,3 +1,6 @@
+# Date      2022.02.01
+# Author    dingddding@163.com
+# Bref      The CMakeLists.txt
 
 function(note_generate_target _PATH _PREFIX _TARGETS)
     file(GLOB FILE_PATHS "${_PATH}/*.cpp" "${_PATH}/*.cxx" "${_PATH}/*.c" "${_PATH}/*.cu")

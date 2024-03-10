@@ -16,12 +16,16 @@ foreach (TARGET ${TARGETS})
             ${TARGET}
             PROPERTIES
             C_STANDARD 11
-            C_EXTENSIONS OFF
+            # C_EXTENSIONS OFF
             C_STANDARD_REQUIRED ON
             CXX_STANDARD 23
             CXX_EXTENSIONS OFF
             CXX_STANDARD_REQUIRED OFF
     )
+    find_library(LIBAIO NAMES aio libaio NO_CACHE)
+    if(NOT LIBAIO STREQUAL "LIBAIO_NOTFOUND")
+        target_link_libraries(${TARGET} PRIVATE ${LIBAIO})
+    endif ()
 endforeach ()
 
 add_library(runso SHARED others/runso.c)
