@@ -14,7 +14,7 @@ foreach (TARGET ${TARGETS})
     set_target_properties(
             ${TARGET}
             PROPERTIES
-            C_STANDARD 11
+            C_STANDARD 23
             C_EXTENSIONS OFF
             C_STANDARD_REQUIRED ON
     )
