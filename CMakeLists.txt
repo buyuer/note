@@ -30,11 +30,11 @@ elseif (MSVC)
 endif ()
 
 get_build_info(NOTE_BUILD_INFO)
-message("-> build info: ${NOTE_BUILD_INFO}")
+message(STATUS "-> build info: ${NOTE_BUILD_INFO}")
 add_compile_definitions(BUILD_INFO=\"${NOTE_BUILD_INFO}\")
 
 get_subdir(SUBPATHS ${CMAKE_SOURCE_DIR})
 foreach (SUBPATH ${SUBPATHS})
-    message("-> subdirectory: ${SUBPATH}")
+    message(STATUS "-> subdirectory: ${SUBPATH}")
     add_subdirectory(${SUBPATH})
 endforeach ()
