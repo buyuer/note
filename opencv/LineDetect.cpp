@@ -3,9 +3,9 @@
 using namespace cv;
 using namespace std;
 bool Line_Detect(vector<Point> array, int sum, int dis);
-int  main(int argc, char **argv)
+int main(int argc, char** argv)
 {
-    Mat         image(imread("4.jpg")), draw, draw1, draw2;
+    Mat image(imread("4.jpg")), draw, draw1, draw2;
     vector<Mat> channelsHSV(3), channelsBGR(3);
     imshow("image", image);
     split(image, channelsBGR);
@@ -20,7 +20,7 @@ int  main(int argc, char **argv)
     /*cvtColor(image, image, COLOR_HSV2BGR);
     cvtColor(image, image, COLOR_BGR2GRAY);*/
     image = channelsHSV[0];
-    draw  = Mat(image.rows, image.cols, CV_8UC3, Scalar::all(0));
+    draw = Mat(image.rows, image.cols, CV_8UC3, Scalar::all(0));
     draw1 = Mat(image.rows, image.cols, CV_8UC3, Scalar::all(0));
     draw2 = Mat(image.rows, image.cols, CV_8UC3, Scalar::all(0));
     threshold(image, image, 100, 255, 0);
@@ -33,8 +33,7 @@ int  main(int argc, char **argv)
     vector<vector<Point>> contours;
     findContours(image, contours, CV_RETR_LIST, CV_CHAIN_APPROX_NONE);
     imshow("draw", draw);
-    for (int i = 0; i < contours.size(); i++)
-    {
+    for (int i = 0; i < contours.size(); i++) {
         // waitKey();
         drawContours(draw, contours, i, Scalar(255, 255, 255));
         cout << contourArea(contours[i], 0) << endl;
@@ -53,22 +52,18 @@ int  main(int argc, char **argv)
     // boundingRect(contours[0]);
     // rectangle(draw, boundingRect(contours[0]), Scalar(0, 255, 0));
     vector<vector<Point>> lineContours;
-    for (int i = 0; i < contours.size(); i++)
-    {
-        if (Line_Detect(contours[i], 500, 2))
-        {
+    for (int i = 0; i < contours.size(); i++) {
+        if (Line_Detect(contours[i], 500, 2)) {
             lineContours.push_back(contours[i]);
         }
     }
-    for (int i = 0; i < lineContours.size(); i++)
-    {
+    for (int i = 0; i < lineContours.size(); i++) {
         waitKey(1000);
         drawContours(draw2, lineContours, i, Scalar(255, 255, 255));
         imshow("draw2", draw2);
     }
     cout << "lineContours��" << lineContours.size() << endl;
-    for (int i = 0; i < lineContours[0].size(); i++)
-    {
+    for (int i = 0; i < lineContours[0].size(); i++) {
         cout << lineContours[0][i] << endl;
     }
     cout << draw2.size() << endl;
@@ -84,21 +79,16 @@ bool Line_Detect(vector<Point> array, int sumValue, int dis)
     int count = array.size() - 1;
     int x, y, sum;
     sum = 0;
-    for (int i = 0; i < count; i++)
-    {
+    for (int i = 0; i < count; i++) {
         x = abs(array[i].x - array[i + 1].x);
         y = abs(array[i].y - array[i + 1].y);
-        if (x < dis && y < dis)
-        {
+        if (x < dis && y < dis) {
             sum++;
         }
     }
-    if (sum > sumValue)
-    {
+    if (sum > sumValue) {
         return 1;
-    }
-    else
-    {
+    } else {
         return 0;
     }
 }

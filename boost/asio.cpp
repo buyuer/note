@@ -5,12 +5,9 @@
 
 using namespace boost;
 
-void print(int x, int y, int z)
-{
-    std::cout << x << y << z << std::endl;
-}
+void print(int x, int y, int z) { std::cout << x << y << z << std::endl; }
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     asio::io_context io_context;
 
@@ -24,8 +21,8 @@ int main(int argc, char *argv[])
 
     acceptor.async_accept(socket,
                           std::bind(
-                              [](asio::ip::tcp::socket *socket) -> void {
-                                  std::string buff{"hello"};
+                              [](asio::ip::tcp::socket* socket) -> void {
+                                  std::string buff { "hello" };
                                   socket->write_some(asio::buffer(buff));
                                   std::cout << buff;
 

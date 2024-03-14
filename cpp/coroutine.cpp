@@ -2,10 +2,8 @@
 #include <iostream>
 #include <string_view>
 
-struct HelloCoroutine
-{
-    struct HelloPromise
-    {
+struct HelloCoroutine {
+    struct HelloPromise {
         std::string_view value_;
 
         HelloCoroutine get_return_object()
@@ -13,19 +11,11 @@ struct HelloCoroutine
             return std::coroutine_handle<HelloPromise>::from_promise(*this);
         }
 
-        std::suspend_never initial_suspend() noexcept
-        {
-            return {};
-        }
+        std::suspend_never initial_suspend() noexcept { return {}; }
 
-        std::suspend_always final_suspend() noexcept
-        {
-            return {};
-        }
+        std::suspend_always final_suspend() noexcept { return {}; }
 
-        void unhandled_exception()
-        {
-        }
+        void unhandled_exception() { }
 
         std::suspend_always yield_value(std::string_view value)
         {
@@ -44,7 +34,8 @@ struct HelloCoroutine
 
     using promise_type = HelloPromise;
 
-    HelloCoroutine(std::coroutine_handle<HelloPromise> h) : handle(h)
+    HelloCoroutine(std::coroutine_handle<HelloPromise> h)
+        : handle(h)
     {
     }
 
@@ -61,14 +52,14 @@ HelloCoroutine hello_yield()
 HelloCoroutine hello_await()
 {
     std::cout << "Hello" << std::endl;
-    co_await std::suspend_always{};
+    co_await std::suspend_always {};
     std::cout << "world" << std::endl;
 }
 
 HelloCoroutine hello_return()
 {
     std::cout << "hello" << std::endl;
-    co_await std::suspend_always{};
+    co_await std::suspend_always {};
     std::string_view s = "world ";
     co_return s;
 }

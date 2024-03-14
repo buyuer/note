@@ -2,8 +2,7 @@
 
 #include <string>
 
-namespace note
-{
+namespace note {
 
 std::string demo();
 

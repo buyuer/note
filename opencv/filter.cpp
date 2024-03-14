@@ -8,22 +8,19 @@ Mat img, boxFilterOut, blurOut, gaussianBlurOut, medianBlurOut,
     bilateralFilterOut;
 int value;
 
-void callBack(int, void *)
+void callBack(int, void*)
 {
     if (value == 0)
         value = 1;
-    Size &cite = Size(value, value);
+    Size& cite = Size(value, value);
 
     boxFilter(img, boxFilterOut, -1, cite);
     blur(img, blurOut, cite);
     bilateralFilter(img, bilateralFilterOut, value, value * 2, value / 2);
-    if (value % 2 == 0)
-    {
+    if (value % 2 == 0) {
         GaussianBlur(img, gaussianBlurOut, Size(value + 1, value + 1), 0, 0);
         medianBlur(img, medianBlurOut, value + 1);
-    }
-    else
-    {
+    } else {
         GaussianBlur(img, gaussianBlurOut, cite, 0, 0);
         if (value == 1)
             value = 3;
@@ -38,9 +35,9 @@ void callBack(int, void *)
 }
 int main()
 {
-    img           = imread(Picture);
+    img = imread(Picture);
     medianBlurOut = Mat::zeros(img.size(), img.type());
-    value         = 10;
+    value = 10;
     namedWindow("原始图", 0);
 
     createTrackbar("Size值：", "原始图", &value, MaxValue, callBack);

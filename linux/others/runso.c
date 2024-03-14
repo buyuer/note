@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-char const __invoke_dynamic_linker__[] __attribute__ ((section (".interp")))
+char const __invoke_dynamic_linker__[] __attribute__((section(".interp")))
 #ifdef __LP64__
 = "/lib64/ld-linux-x86-64.so.2";
 #else

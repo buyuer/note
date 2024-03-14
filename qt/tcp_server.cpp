@@ -5,16 +5,16 @@
 
 #include <iostream>
 
-class SimpleHttpServer : public QTcpServer
-{
+class SimpleHttpServer : public QTcpServer {
     Q_OBJECT
-  public:
-    explicit SimpleHttpServer(QObject *parent = nullptr) : QTcpServer(parent)
+public:
+    explicit SimpleHttpServer(QObject* parent = nullptr)
+        : QTcpServer(parent)
     {
         listen(QHostAddress::Any, 8080);
     }
 
-  protected slots:
+protected slots:
     void incomingConnection(qintptr socketDescriptor) override
     {
         socket = new QTcpSocket(this);
@@ -37,13 +37,13 @@ class SimpleHttpServer : public QTcpServer
         socket->close();
     }
 
-  private:
-    QTcpSocket *socket{};
+private:
+    QTcpSocket* socket {};
 };
 
 #include "tcp_server.moc"
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     QCoreApplication app(argc, argv);
 

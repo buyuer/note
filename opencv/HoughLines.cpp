@@ -4,7 +4,7 @@
 using namespace cv;
 using namespace std;
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     /*Mat abc(imread("1.jpg")),out;
     Canny(abc, abc, 3, 9);
@@ -16,10 +16,9 @@ int main(int argc, char **argv)
     vector<Vec2f> lines;
     HoughLines(midImage, lines, 1, CV_PI / 180, 150, 0, 0);
 
-    for (size_t i = 0; i < lines.size(); i++)
-    {
+    for (size_t i = 0; i < lines.size(); i++) {
         double rho = lines[i][0], theta = lines[i][1];
-        Point  pt1, pt2;
+        Point pt1, pt2;
         double a = cos(theta), b = sin(theta);
         double x0 = a * rho, y0 = b * rho;
         pt1.x = cvRound(x0 + 1000 * (-b));

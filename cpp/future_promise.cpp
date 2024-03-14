@@ -5,14 +5,14 @@
 
 using namespace std::literals::chrono_literals;
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     std::promise<int> pro;
 
     auto fut = pro.get_future();
 
     std::thread t1(
-        [](std::promise<int> *pro) -> void {
+        [](std::promise<int>* pro) -> void {
             std::this_thread::sleep_for(3s);
 
             pro->set_value(10);

@@ -23,7 +23,7 @@ foreach (TARGET ${TARGETS})
             CXX_STANDARD_REQUIRED OFF
     )
     find_library(LIBAIO NAMES aio libaio NO_CACHE)
-    if(NOT LIBAIO STREQUAL "LIBAIO_NOTFOUND")
+    if (NOT LIBAIO STREQUAL "LIBAIO_NOTFOUND")
         target_link_libraries(${TARGET} PRIVATE ${LIBAIO})
     endif ()
 endforeach ()

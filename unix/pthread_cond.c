@@ -2,15 +2,14 @@
 #include <stdio.h>
 #include <unistd.h>
 
-struct CondMutex
-{
-    pthread_cond_t  cond;
+struct CondMutex {
+    pthread_cond_t cond;
     pthread_mutex_t mutex;
 };
 
-static void *thread_entry(void *arg)
+static void* thread_entry(void* arg)
 {
-    struct CondMutex *pair = (struct CondMutex *)arg;
+    struct CondMutex* pair = (struct CondMutex*)arg;
 
     pthread_cond_wait(&pair->cond, &pair->mutex);
     printf("thread\n");
@@ -18,7 +17,7 @@ static void *thread_entry(void *arg)
     return 0;
 }
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     struct CondMutex pair = {};
     pthread_cond_init(&pair.cond, NULL);

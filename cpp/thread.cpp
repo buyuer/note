@@ -2,32 +2,27 @@
 #include <iostream>
 #include <thread>
 
-class TestFunc
-{
-  public:
-    void work(int a)
-    {
-        std::cout << a << std::endl;
-    }
+class TestFunc {
+public:
+    void work(int a) { std::cout << a << std::endl; }
 };
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     auto id = std::this_thread::get_id();
     std::cout << id << std::endl;
 
     std::thread t1(
-        [](int argc, char *argv[]) -> void {
-            std::this_thread::sleep_for(std::chrono::seconds{1});
+        [](int argc, char* argv[]) -> void {
+            std::this_thread::sleep_for(std::chrono::seconds { 1 });
 
-            for (int index = 0; index < argc; ++index)
-            {
+            for (int index = 0; index < argc; ++index) {
                 std::cout << argv[index] << std::endl;
             }
         },
         argc, argv);
 
-    TestFunc    func;
+    TestFunc func;
     std::thread t2(&TestFunc::work, &func, 1);
     t2.detach();
 

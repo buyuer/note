@@ -1,7 +1,7 @@
-BasedOnStyle: Microsoft
+BasedOnStyle: WebKit
 ColumnLimit: 80
 AlignAfterOpenBracket: true
 AlignTrailingComments: true
-AlignConsecutiveAssignments: AcrossComments
-AlignConsecutiveDeclarations: AcrossComments
+#AlignConsecutiveAssignments: AcrossComments
+# AlignConsecutiveDeclarations: AcrossComments
 AlignConsecutiveMacros: Consecutive
