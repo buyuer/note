@@ -1,4 +1,4 @@
-#include "opencv.hpp"
+#include "opencv2/opencv.hpp"
 
 #define Picture  "4.jpg"
 #define MaxValue 30
