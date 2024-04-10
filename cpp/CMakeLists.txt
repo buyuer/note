@@ -22,3 +22,7 @@ foreach (TARGET ${TARGETS})
             CXX_STANDARD_REQUIRED OFF
     )
 endforeach ()
+
+if (CMAKE_VERSION VERSION_GREATER_EQUAL 3.8)
+    add_subdirectory(module)
+endif ()
