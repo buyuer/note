@@ -11,6 +11,9 @@ project(note-linux LANGUAGES C CXX)
 
 note_generate_target(./ linux TARGETS)
 
+find_library(LIBAIO NAMES aio libaio NO_CACHE)
+find_library(LIBURING NAMES uring liburing NO_CACHE)
+
 foreach (TARGET ${TARGETS})
     set_target_properties(
             ${TARGET}
@@ -22,9 +25,11 @@ foreach (TARGET ${TARGETS})
             CXX_EXTENSIONS OFF
             CXX_STANDARD_REQUIRED OFF
     )
-    find_library(LIBAIO NAMES aio libaio NO_CACHE)
     if (NOT LIBAIO STREQUAL "LIBAIO_NOTFOUND")
         target_link_libraries(${TARGET} PRIVATE ${LIBAIO})
+    endif ()
+    if (NOT LIBURING STREQUAL "LIBAIO_NOTFOUND")
+        target_link_libraries(${TARGET} PRIVATE ${LIBURING})
     endif ()
 endforeach ()
 
