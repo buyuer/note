@@ -1,36 +1,29 @@
 #include "algo.hpp"
 
-template <typename T> SingleLinkNode<T>* reversal1(SingleLinkNode<T>* head)
+#include <strings.h>
+
+template <typename T> void traverse(typename BinaryTree<T>::Node* root)
 {
-    if (head and not head->next) {
-        return head;
+    if (not root) {
+        return;
     }
 
-    auto last = reversal(head->next);
-    head->next->next = head;
-    head->next = nullptr;
-    return last;
-}
-
-template <typename T> SingleLinkNode<T>* reversal2(SingleLinkNode<T>* head)
-{
-    SingleLinkNode<T>* p = head;
-    SingleLinkNode<T>* last = nullptr;
-    while (p) {
-        auto temp = p->next;
-        p->next = last;
-        last = p;
-        p = temp;
-    }
-
-    return last;
+    traverse<int>(root->left);
+    traverse<int>(root->right);
+    std::cout << root->val << ", ";
 }
 
 int main()
 {
-    auto head = Node::create({ 1, 2, 3, 4 });
-    head->print();
-    head = reversal2(head);
-    head->print();
+    auto head = LinkList::create({ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
+    LinkList::print(head);
+    head = LinkList::reversal(head, 2, 4);
+    LinkList::print(head);
     delete head;
+
+    const std::vector<int> preorders { 3, 9, 20, 15, 7 };
+    const std::vector<int> inorders { 9, 3, 15, 20, 7 };
+    auto root = BinTree::create(preorders, inorders);
+    traverse<int>(root);
+    delete root;
 }
